@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useState } from "react";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import logoAsset from "@/assets/al-shaheebi-logo.png.asset.json";
 
 const TrailerScene = lazy(() => import("@/components/TrailerScene"));
 
