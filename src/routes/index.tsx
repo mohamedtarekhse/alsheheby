@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useState } from "react";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import logoAsset from "@/assets/al-shaheebi-logo.png.asset.json";
 
 const TrailerScene = lazy(() => import("@/components/TrailerScene"));
 
@@ -110,11 +111,11 @@ function Header() {
     <header className="absolute inset-x-0 top-0 z-40">
       <div className="container-x flex items-center justify-between py-5">
         <a href="#home" className="flex items-center gap-3">
-          <LogoMark />
-          <div className="leading-tight">
-            <div className="text-xl font-black text-white drop-shadow">الشهيبي</div>
-            <div className="text-[10px] tracking-[0.3em] text-white/70">AL-SHEHABY LOGISTICS</div>
-          </div>
+          <img
+            src={logoAsset.url}
+            alt="الشهيبي - Al-Shaheebi Trust International Road Transport"
+            className="h-14 w-auto rounded-md bg-white/95 p-1.5 shadow-lg md:h-16"
+          />
         </a>
 
         <nav className="hidden items-center gap-7 md:flex">
