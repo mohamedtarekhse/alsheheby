@@ -84,13 +84,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "الشهيبي – شركة مصرية رائدة في النقل البري الثقيل والشحنات العملاقة عبر الشرق الأوسط. أسطول حديث، تخليص جمركي، واستشارات لوجستية.",
       },
       { name: "author", content: "Al-Shehaby Logistics" },
-      { property: "og:title", content: "الشهيبي للنقل البري الثقيل" },
+      { property: "og:title", content: "الشهيبي | شركة النقل البري الثقيل في الشرق الأوسط" },
       {
         property: "og:description",
         content: "نقل بري ثقيل عابر للحدود من مصر إلى الشرق الأوسط.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "الشهيبي | شركة النقل البري الثقيل في الشرق الأوسط" },
+      { name: "description", content: "Egyptian Freight Hub is a logistics company landing page for Middle Eastern land transportation." },
+      { property: "og:description", content: "Egyptian Freight Hub is a logistics company landing page for Middle Eastern land transportation." },
+      { name: "twitter:description", content: "Egyptian Freight Hub is a logistics company landing page for Middle Eastern land transportation." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
