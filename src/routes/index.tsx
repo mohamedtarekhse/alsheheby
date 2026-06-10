@@ -187,9 +187,9 @@ function Hero() {
         playsInline
         poster="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=80"
       >
-        <source src="https://videos.pexels.com/video-files/3066466/3066466-hd_1920_1080_24fps.mp4" type="video/mp4" />
-        <source src="https://videos.pexels.com/video-files/4271760/4271760-hd_1920_1080_24fps.mp4" type="video/mp4" />
-        <source src="https://videos.pexels.com/video-files/2103099/2103099-hd_1920_1080_30fps.mp4" type="video/mp4" />
+        <source src="https://videos.pexels.com/video-files/17899033/17899033-hd_1920_1080_24fps.mp4" type="video/mp4" />
+        <source src="https://videos.pexels.com/video-files/4271760/4271760-hd_1920_1080_30fps.mp4" type="video/mp4" />
+        <source src="https://videos.pexels.com/video-files/4320049/4320049-hd_1920_1080_30fps.mp4" type="video/mp4" />
       </video>
 
       {/* gradient overlays */}
