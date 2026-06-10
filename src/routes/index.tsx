@@ -3,7 +3,7 @@ import { lazy, Suspense, useState } from "react";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import logoAsset from "@/assets/al-shaheebi-logo.png.asset.json";
 
-const TrailerScene = lazy(() => import("@/components/TrailerScene"));
+const TrailerRear = lazy(() => import("@/components/TrailerRear"));
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -338,19 +338,17 @@ function Section3D() {
           </ul>
         </div>
         <div className="md:col-span-7">
-          <div className="overflow-hidden rounded-3xl bg-white shadow-[var(--shadow-elegant)] ring-1 ring-black/5">
-            <Suspense
-              fallback={
-                <div className="grid h-[80vh] place-items-center text-sm text-muted-foreground">
-                  جارٍ تحميل الماكيت ثلاثي الأبعاد…
-                </div>
-              }
-            >
-              <TrailerScene />
-            </Suspense>
-          </div>
+          <Suspense
+            fallback={
+              <div className="grid h-[60vh] place-items-center rounded-3xl bg-white text-sm text-muted-foreground shadow-[var(--shadow-elegant)]">
+                جارٍ التحميل…
+              </div>
+            }
+          >
+            <TrailerRear />
+          </Suspense>
           <p className="mt-3 text-center text-xs text-muted-foreground">
-            مرّر للأسفل لتدوير الماكيت • Scroll to rotate
+            مقطورة الشهيبي • سرعة وأمان على الطريق
           </p>
         </div>
       </div>
