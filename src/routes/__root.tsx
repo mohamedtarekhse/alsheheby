@@ -92,9 +92,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "الشهيبي | شركة النقل البري الثقيل في الشرق الأوسط" },
-      { name: "description", content: "Egyptian Freight Hub is a logistics company landing page for Middle Eastern land transportation." },
-      { property: "og:description", content: "Egyptian Freight Hub is a logistics company landing page for Middle Eastern land transportation." },
-      { name: "twitter:description", content: "Egyptian Freight Hub is a logistics company landing page for Middle Eastern land transportation." },
+      {
+        name: "description",
+        content:
+          "Egyptian Freight Hub is a logistics company landing page for Middle Eastern land transportation.",
+      },
+      {
+        property: "og:description",
+        content:
+          "Egyptian Freight Hub is a logistics company landing page for Middle Eastern land transportation.",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Egyptian Freight Hub is a logistics company landing page for Middle Eastern land transportation.",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

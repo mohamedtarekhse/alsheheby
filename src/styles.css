@@ -158,16 +158,51 @@
   50% { transform: translateY(-8px); }
 }
 
-@keyframes pulse-ring {
-  0% { box-shadow: 0 0 0 0 oklch(0.66 0.18 150 / 0.55); }
-  100% { box-shadow: 0 0 0 22px oklch(0.66 0.18 150 / 0); }
+@utility animate-float-y {
+  animation: float-y 4s ease-in-out infinite;
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-@utility animate-float { animation: float-y 4s ease-in-out infinite; }
-@utility animate-pulse-ring { animation: pulse-ring 1.8s ease-out infinite; }
-@utility animate-marquee { animation: marquee 30s linear infinite; }
+@utility animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes overlay-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@utility animate-overlay-pulse {
+  animation: overlay-pulse 2s ease-in-out infinite;
+}
+
+@keyframes ken-burns {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@utility animate-ken-burns {
+  animation: ken-burns 12s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 12px 30px -10px rgba(0,0,0,.35), 0 0 0 0 oklch(0.66 0.18 150 / 0.55); }
+  100% { box-shadow: 0 12px 30px -10px rgba(0,0,0,.35), 0 0 0 22px oklch(0.66 0.18 150 / 0); }
+}
+
+@utility animate-pulse-ring {
+  animation: pulse-ring 1.8s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
