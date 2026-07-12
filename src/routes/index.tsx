@@ -602,13 +602,13 @@ const LOCAL_LOGOS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 20, 
   src: `/images/partners/${n}.png`,
 }));
 
-const half = Math.ceil(LOCAL_LOGOS.length / 2);
-const row1Logos = LOCAL_LOGOS.slice(0, half);
-const row2Logos = LOCAL_LOGOS.slice(half);
+// All logos on both rows — duplicated so the CSS marquee loops seamlessly
+const row1Logos = LOCAL_LOGOS;
+const row2Logos = [...LOCAL_LOGOS].reverse();
 
 function Partners() {
   return (
-    <section id="partners" className="scroll-mt-24 py-24 md:py-32 bg-[var(--color-secondary)] overflow-hidden">
+    <section id="partners" className="scroll-mt-24 py-24 md:py-32 bg-[var(--color-secondary)]">
       <div className="container-x">
         <div className="text-center mb-16">
           <span className="eyebrow !text-[var(--color-primary)] mb-4 block">شركاؤنا</span>
@@ -621,26 +621,23 @@ function Partners() {
         </div>
       </div>
 
-      <div className="relative w-full overflow-hidden flex flex-col gap-6 py-4">
-        {/* Fade mask overlay */}
-        <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-[var(--color-secondary)] to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-[var(--color-secondary)] to-transparent z-10 pointer-events-none" />
+      <div className="relative w-full flex flex-col gap-6 py-4" style={{ maskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)" }}>
 
-        {/* Row 1: Scrolling Left */}
+        {/* Row 1: All 53 logos scrolling Left */}
         <div className="flex overflow-hidden select-none">
-          <div 
-            className="flex gap-6 shrink-0 animate-marquee hover:[animation-play-state:paused] min-w-max"
-            style={{ animationDuration: "40s" }}
+          <div
+            className="flex gap-6 shrink-0 animate-marquee min-w-max"
+            style={{ animationDuration: "55s" }}
           >
             {[...row1Logos, ...row1Logos].map((logo, idx) => (
               <div
-                key={`row1-${logo.name}-${idx}`}
-                className="rounded-2xl border border-border bg-[var(--color-secondary)] px-6 py-4 flex items-center justify-center h-24 w-40 overflow-hidden transition-all duration-300 hover:shadow-[var(--shadow-elegant)] group"
+                key={`r1-${idx}`}
+                className="rounded-2xl border border-border bg-white/60 px-4 py-3 flex items-center justify-center h-24 w-36 shrink-0 overflow-hidden transition-all duration-300 hover:shadow-[var(--shadow-elegant)] hover:bg-white group"
               >
                 <img
                   alt={logo.name}
                   src={logo.src}
-                  className="h-full w-full object-contain opacity-70 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105"
+                  className="h-full w-full object-contain opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105"
                   loading="lazy"
                 />
               </div>
@@ -648,21 +645,21 @@ function Partners() {
           </div>
         </div>
 
-        {/* Row 2: Scrolling Right */}
+        {/* Row 2: All 53 logos (reversed) scrolling Right */}
         <div className="flex overflow-hidden select-none">
-          <div 
-            className="flex gap-6 shrink-0 animate-marquee hover:[animation-play-state:paused] min-w-max"
-            style={{ animationDuration: "35s", animationDirection: "reverse" }}
+          <div
+            className="flex gap-6 shrink-0 animate-marquee-reverse min-w-max"
+            style={{ animationDuration: "45s" }}
           >
             {[...row2Logos, ...row2Logos].map((logo, idx) => (
               <div
-                key={`row2-${logo.name}-${idx}`}
-                className="rounded-2xl border border-border bg-[var(--color-secondary)] px-6 py-4 flex items-center justify-center h-24 w-40 overflow-hidden transition-all duration-300 hover:shadow-[var(--shadow-elegant)] group"
+                key={`r2-${idx}`}
+                className="rounded-2xl border border-border bg-white/60 px-4 py-3 flex items-center justify-center h-24 w-36 shrink-0 overflow-hidden transition-all duration-300 hover:shadow-[var(--shadow-elegant)] hover:bg-white group"
               >
                 <img
                   alt={logo.name}
                   src={logo.src}
-                  className="h-full w-full object-contain opacity-70 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105"
+                  className="h-full w-full object-contain opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105"
                   loading="lazy"
                 />
               </div>
