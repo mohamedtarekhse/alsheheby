@@ -602,15 +602,11 @@ const LOCAL_LOGOS = Array.from({ length: 53 }, (_, i) => i + 1).map((n) => ({
   src: `/images/partners/${n}.png`,
 }));
 
-// All logos on both rows — duplicated so the CSS marquee loops seamlessly
-const row1Logos = LOCAL_LOGOS;
-const row2Logos = [...LOCAL_LOGOS].reverse();
-
 function Partners() {
   return (
     <section id="partners" className="scroll-mt-24 py-24 md:py-32 bg-[var(--color-secondary)]">
       <div className="container-x">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <span className="eyebrow !text-[var(--color-primary)] mb-4 block">شركاؤنا</span>
           <h2 className="section-title text-[var(--color-primary-deep)] mb-6">
             شركاء النجاح في الصناعات المصرية
@@ -619,50 +615,20 @@ function Partners() {
             نفخر بالتعاون مع كبرى الشركات الدوائية والغذائية الرائدة في جمهورية مصر العربية
           </p>
         </div>
-      </div>
 
-      <div className="relative w-full flex flex-col gap-6 py-4" style={{ maskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)" }}>
-
-        {/* Row 1: All 53 logos scrolling Left */}
-        <div className="overflow-hidden select-none">
-          <div
-            className="inline-flex gap-6 animate-marquee"
-            style={{ animationDuration: "55s" }}
-          >
-            {[...row1Logos, ...row1Logos].map((logo, idx) => (
-              <div
-                key={`r1-${idx}`}
-                className="rounded-2xl border border-border bg-white/60 px-4 py-3 flex items-center justify-center h-24 w-36 shrink-0 overflow-hidden transition-all duration-300 hover:shadow-[var(--shadow-elegant)] hover:bg-white group"
-              >
-                <img
-                  alt={logo.name}
-                  src={logo.src}
-                  className="h-full w-full object-contain opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Row 2: All 53 logos (reversed) scrolling Right */}
-        <div className="overflow-hidden select-none">
-          <div
-            className="inline-flex gap-6 animate-marquee-reverse"
-            style={{ animationDuration: "45s" }}
-          >
-            {[...row2Logos, ...row2Logos].map((logo, idx) => (
-              <div
-                key={`r2-${idx}`}
-                className="rounded-2xl border border-border bg-white/60 px-4 py-3 flex items-center justify-center h-24 w-36 shrink-0 overflow-hidden transition-all duration-300 hover:shadow-[var(--shadow-elegant)] hover:bg-white group"
-              >
-                <img
-                  alt={logo.name}
-                  src={logo.src}
-                  className="h-full w-full object-contain opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105"
-                />
-              </div>
-            ))}
-          </div>
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-3 md:gap-4">
+          {LOCAL_LOGOS.map((logo) => (
+            <div
+              key={logo.name}
+              className="rounded-xl border border-border bg-white/60 px-3 py-2.5 flex items-center justify-center h-20 overflow-hidden transition-all duration-300 hover:shadow-[var(--shadow-elegant)] hover:bg-white group"
+            >
+              <img
+                alt={logo.name}
+                src={logo.src}
+                className="h-full w-full object-contain opacity-65 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
