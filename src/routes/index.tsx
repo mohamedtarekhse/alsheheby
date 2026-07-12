@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useState } from "react";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import Autoplay from "embla-carousel-autoplay";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 const TrailerRear = lazy(() => import("@/components/TrailerRear"));
 
@@ -642,10 +641,7 @@ function Partners() {
             نفخر بالتعاون مع كبرى الشركات الدوائية والغذائية الرائدة في جمهورية مصر العربية
           </p>
         </div>
-        <Carousel
-          opts={{ align: "start", loop: true }}
-          plugins={[Autoplay({ delay: 4000, stopOnInteraction: false })]}
-        >
+        <Carousel opts={{ align: "start" }}>
           <CarouselContent>
             {PARTNER_PAGES.map((page, pageIdx) => (
               <CarouselItem key={pageIdx}>
@@ -666,6 +662,8 @@ function Partners() {
               </CarouselItem>
             ))}
           </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
         </Carousel>
       </div>
     </section>
