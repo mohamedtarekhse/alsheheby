@@ -932,7 +932,7 @@ function Footer() {
             <div className="flex items-center gap-3">
               <LogoMark />
               <div className="leading-tight">
-                <div className="text-xl font-black">الشهيبي</div>
+                <div className="text-xl font-black">الشهيبي <span className="text-sky-300">ترست</span></div>
                 <div className="text-[10px] tracking-[0.3em] text-white/70">
                   AL-SHEHABY LOGISTICS
                 </div>
@@ -978,7 +978,7 @@ function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/55 md:flex-row">
-          <span>© {new Date().getFullYear()} الشهيبي للنقل البري الثقيل. جميع الحقوق محفوظة.</span>
+          <span>© {new Date().getFullYear()} الشهيبي <span className="text-sky-300">ترست</span> للنقل البري الثقيل. جميع الحقوق محفوظة.</span>
           <span>صُمم بإتقان في القاهرة.</span>
         </div>
       </div>
