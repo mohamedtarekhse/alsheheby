@@ -162,14 +162,6 @@
   animation: float-y 4s ease-in-out infinite;
 }
 
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-@utility animate-marquee {
-  animation: marquee 30s linear infinite;
-}
 
 @keyframes overlay-pulse {
   0%, 100% { opacity: 0.6; }

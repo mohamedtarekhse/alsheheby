@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-03T00:00:00.000Z",
+  "title": "Design System: Al-Shaheebi Trust",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Deep Water Blue",
+        "canonical": "oklch(0.58 0.18 252)",
+        "tonalRamp": [
+          "oklch(0.18 0.09 252)",
+          "oklch(0.28 0.12 252)",
+          "oklch(0.38 0.15 252)",
+          "oklch(0.48 0.17 252)",
+          "oklch(0.58 0.18 252)",
+          "oklch(0.68 0.14 252)",
+          "oklch(0.78 0.10 252)",
+          "oklch(0.90 0.05 252)"
+        ]
+      },
+      "primary-deep": {
+        "role": "primary-variant",
+        "displayName": "Deep Water Navy",
+        "canonical": "oklch(0.28 0.09 255)",
+        "tonalRamp": [
+          "oklch(0.10 0.05 255)",
+          "oklch(0.16 0.07 255)",
+          "oklch(0.22 0.08 255)",
+          "oklch(0.28 0.09 255)",
+          "oklch(0.34 0.10 255)",
+          "oklch(0.44 0.11 255)",
+          "oklch(0.56 0.10 255)",
+          "oklch(0.70 0.07 255)"
+        ]
+      },
+      "surface-deep": {
+        "role": "neutral-dark",
+        "displayName": "Night Surface",
+        "canonical": "oklch(0.20 0.08 255)",
+        "tonalRamp": [
+          "oklch(0.08 0.05 255)",
+          "oklch(0.14 0.07 255)",
+          "oklch(0.20 0.08 255)",
+          "oklch(0.30 0.08 255)",
+          "oklch(0.42 0.07 255)",
+          "oklch(0.55 0.05 255)",
+          "oklch(0.70 0.04 255)",
+          "oklch(0.85 0.02 255)"
+        ]
+      },
+      "whatsapp": {
+        "role": "accent",
+        "displayName": "WhatsApp Green",
+        "canonical": "oklch(0.66 0.18 150)",
+        "tonalRamp": [
+          "oklch(0.20 0.12 150)",
+          "oklch(0.33 0.15 150)",
+          "oklch(0.46 0.18 150)",
+          "oklch(0.56 0.19 150)",
+          "oklch(0.66 0.18 150)",
+          "oklch(0.76 0.14 150)",
+          "oklch(0.86 0.09 150)",
+          "oklch(0.94 0.04 150)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headlines only. Never used for section titles." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles across the landing page." },
+      "title": { "displayName": "Title", "purpose": "Card titles, feature names." },
+      "body": { "displayName": "Body", "purpose": "Paragraphs, descriptions. Capped at 65–75ch." },
+      "label": { "displayName": "Label", "purpose": "Eyebrow markers, tags, uppercase tracking." }
+    },
+    "shadows": [
+      { "name": "elegant", "value": "0 20px 60px -25px oklch(0.30 0.12 255 / 0.45)", "purpose": "Default card shadow. Wide, soft, cinematic." },
+      { "name": "glow", "value": "0 0 60px oklch(0.58 0.18 252 / 0.35)", "purpose": "Hover glow for primary elements and accent bars." }
+    ],
+    "motion": [
+      { "name": "ease-out-expo", "value": "cubic-bezier(0.19, 1, 0.22, 1)", "purpose": "Default easing for state transitions (250ms)." },
+      { "name": "ken-burns", "value": "12s ease-in-out infinite alternate", "purpose": "Continuous slow zoom on coverage carousel images." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Pill-shaped gradient primary CTA button. Used in header ('اطلب عرض سعر') and hero section.",
+      "html": "<button class=\"ds-btn-primary\">اطلب عرض سعر</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.85rem 1.6rem; border-radius: 9999px; background: linear-gradient(135deg, oklch(0.58 0.18 252), oklch(0.42 0.16 255)); color: white; font-weight: 700; font-family: 'Cairo', system-ui, sans-serif; border: none; cursor: pointer; box-shadow: 0 20px 60px -25px oklch(0.30 0.12 255 / 0.45); transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease; } .ds-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 60px oklch(0.58 0.18 252 / 0.35); filter: brightness(1.05); } .ds-btn-primary:focus-visible { outline: 2px solid oklch(0.58 0.18 252); outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Transparent pill button with blurred glass border. Used as secondary CTA in hero.",
+      "html": "<button class=\"ds-btn-ghost\">اكتشف المزيد</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.85rem 1.6rem; border-radius: 9999px; border: 1px solid color-mix(in oklab, white 35%, transparent); color: white; font-weight: 600; font-family: 'Cairo', system-ui, sans-serif; background: color-mix(in oklab, white 8%, transparent); backdrop-filter: blur(8px); cursor: pointer; transition: background 0.25s ease, transform 0.25s ease; } .ds-btn-ghost:hover { background: color-mix(in oklab, white 18%, transparent); transform: translateY(-2px); } .ds-btn-ghost:focus-visible { outline: 2px solid white; outline-offset: 2px; }"
+    },
+    {
+      "name": "Service Card",
+      "kind": "card",
+      "refersTo": "card-default",
+      "description": "Standard service/feature card. Full border, icon box, title, description.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-card-icon\"><svg viewBox=\"0 0 24 24\" class=\"icon\" stroke=\"currentColor\" fill=\"none\"><path d=\"M8 3L4 7l4 4\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M4 7h16\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></div><h3 class=\"ds-card-title\">النقل الثقيل</h3><p class=\"ds-card-desc\">أسطول حديث يغطي جميع أنحاء الشرق الأوسط.</p></article>",
+      "css": ".ds-card { border-radius: 1rem; border: 1px solid oklch(0.90 0.02 250); background: white; padding: 1.75rem; box-shadow: 0 20px 60px -25px oklch(0.30 0.12 255 / 0.45); transition: transform 0.25s ease, box-shadow 0.25s ease; } .ds-card:hover { transform: translateY(-4px); box-shadow: 0 0 60px oklch(0.58 0.18 252 / 0.35); } .ds-card-icon { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 0.75rem; background: linear-gradient(135deg, oklch(0.58 0.18 252), oklch(0.42 0.16 255)); margin-bottom: 1rem; } .ds-card-icon .icon { width: 24px; height: 24px; color: white; } .ds-card-title { font-size: 1.125rem; font-weight: 700; color: oklch(0.28 0.09 255); margin-bottom: 0.5rem; font-family: 'Cairo', system-ui, sans-serif; } .ds-card-desc { font-size: 0.875rem; color: oklch(0.50 0.03 250); line-height: 1.7; font-family: 'Cairo', system-ui, sans-serif; }"
+    },
+    {
+      "name": "Country Tag Pill",
+      "kind": "chip",
+      "refersTo": "chip-country",
+      "description": "Rounded pill tag for country names in the Coverage section. Tinted blue border and background.",
+      "html": "<span class=\"ds-tag\">مصر</span>",
+      "css": ".ds-tag { display: inline-block; padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; font-family: 'Cairo', system-ui, sans-serif; color: oklch(0.9 0.02 260); background: oklch(0.58 0.18 252 / 0.1); border: 1px solid oklch(0.58 0.18 252 / 0.3); backdrop-filter: blur(4px); transition: background 0.2s ease, border-color 0.2s ease; cursor: default; } .ds-tag:hover { background: oklch(0.58 0.18 252 / 0.2); border-color: oklch(0.58 0.18 252 / 0.5); }"
+    },
+    {
+      "name": "Carousel Slide",
+      "kind": "custom",
+      "refersTo": "carousel-slide",
+      "description": "Full-height carousel slide for capital city images with Ken Burns zoom and city name overlay.",
+      "html": "<div class=\"ds-slide\"><div class=\"ds-slide-bg\"></div><div class=\"ds-slide-gradient\"></div><div class=\"ds-slide-label\"><h3 class=\"ds-slide-title\">القاهرة</h3><p class=\"ds-slide-sub\">Cairo</p></div></div>",
+      "css": ".ds-slide { position: relative; width: 100%; height: 100%; overflow: hidden; background: linear-gradient(135deg, oklch(0.58 0.18 252 / 0.35), oklch(0.22 0.12 260), oklch(0.15 0.08 255)); } .ds-slide-bg { position: absolute; inset: 0; background-image: url('/images/capitals/cairo.jpg'); background-size: cover; background-position: center; animation: ken-burns 12s ease-in-out infinite alternate; } @keyframes ken-burns { 0% { transform: scale(1); } 100% { transform: scale(1.1); } } .ds-slide-gradient { position: absolute; inset: 0; background: linear-gradient(to top, oklch(0 0 0 / 0.7), oklch(0 0 0 / 0.25), transparent); pointer-events: none; z-index: 1; } .ds-slide-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 2.5rem; z-index: 2; } .ds-slide-title { font-size: 2rem; font-weight: 900; line-height: 1.1; color: white; margin: 0; font-family: 'Cairo', system-ui, sans-serif; } .ds-slide-sub { margin-top: 0.25rem; font-size: 1rem; font-weight: 500; color: oklch(1 0 0 / 0.7); font-family: 'Cairo', system-ui, sans-serif; }"
+    },
+    {
+      "name": "WhatsApp FAB",
+      "kind": "button",
+      "refersTo": "whatsapp-fab",
+      "description": "Floating WhatsApp action button with pulsing green ring animation.",
+      "html": "<a class=\"ds-whatsapp\" href=\"https://wa.me/201005695601\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"تواصل عبر واتساب\"><svg viewBox=\"0 0 24 24\" fill=\"currentColor\" class=\"ds-wa-icon\"><path d=\"M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z\"/></svg></a>",
+      "css": ".ds-whatsapp { position: fixed; bottom: 1.5rem; left: 1.5rem; z-index: 50; width: 56px; height: 56px; border-radius: 50%; background: oklch(0.66 0.18 150); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px oklch(0.66 0.18 150 / 0.4); cursor: pointer; transition: transform 0.2s ease; animation: pulse-ring 1.8s ease-out infinite; } @keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 oklch(0.66 0.18 150 / 0.55); } 100% { box-shadow: 0 0 0 22px oklch(0.66 0.18 150 / 0); } } .ds-wa-icon { width: 24px; height: 24px; color: white; } .ds-whatsapp:hover { transform: scale(1.05); } .ds-whatsapp:focus-visible { outline: 2px solid white; outline-offset: 4px; } @media (prefers-reduced-motion: reduce) { .ds-whatsapp { animation: none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Heavy Metal",
+    "overview": "Al-Shaheebi Trust is built on power, reach, and trust. Every visual decision echoes the weight of a loaded truck crossing the Arab world — nothing is light, nothing is fleeting. The palette is anchored in Deep Water Blue, a saturated navy that reads as authority without aggression. Surfaces are dark and immersive, lit by cinematic gradients that suggest desert dawns and highway nights. Motion is deliberate: the Ken Burns zoom on capital city images, the slow parallax on the hero video, the floating WhatsApp beacon — every animation has the gravity of something heavy in motion. This system explicitly rejects the generic trucking template: no cheap stock photography, no clip art icons, no beige backgrounds, no cluttered layouts.",
+    "keyCharacteristics": [
+      "Heavy, authoritative, grounded — nothing feels floating or disposable",
+      "Dark immersive surfaces punctuated by Deep Water Blue accents",
+      "Cinematic motion — slow, smooth, intentional",
+      "Arabic-first with a premium, not decorative, treatment",
+      "Show-don't-tell: visual proof of fleet, coverage, and operations"
+    ],
+    "rules": [
+      { "name": "The Deep Water Rule", "body": "The primary blue appears on ≤30% of any given screen. Its restraint is what makes it authoritative.", "section": "colors" },
+      { "name": "The Night Haul Rule", "body": "Dark sections are never black. They are tinted navy — cool, deep, and directional.", "section": "colors" },
+      { "name": "The Single Engine Rule", "body": "Cairo is the only typeface. No second display font, no serif accent. Weight contrast does all the work.", "section": "typography" },
+      { "name": "The Highway Rule", "body": "Body text on dark backgrounds is white at 80–85% opacity, never pure white, never below 70%.", "section": "typography" },
+      { "name": "The Moonlight Rule", "body": "All shadows are wide and soft (>50px blur). Tight shadows look like low-budget print.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Deep Water Blue as the primary accent — restrained, authoritative, ≤30% of any screen.",
+      "Do use dark backgrounds as the default for premium sections (gradient-deep: cool navy, not black).",
+      "Do use cinematic wide shadows (>50px blur) for card depth.",
+      "Do keep typography to one family (Cairo). Vary weight, not font.",
+      "Do use the Ken Burns zoom on capital city images.",
+      "Do respect prefers-reduced-motion: collapse animations to crossfades or instant transitions.",
+      "Do use local images only.",
+      "Do keep the pill button shape (rounded-full) for all primary and ghost buttons.",
+      "Do write Arabic-first."
+    ],
+    "donts": [
+      "Don't use generic trucking stock photography, cheap clip art, or template-like layouts.",
+      "Don't put gray text on colored backgrounds — use a shade of that color or a transparency instead.",
+      "Don't use gradient text (background-clip: text with a gradient) — use a single solid color.",
+      "Don't use side-stripe borders (border-left >1px colored accent on cards).",
+      "Don't use glassmorphism decoratively.",
+      "Don't use the hero-metric template (big number + small label + gradient accent).",
+      "Don't put an eyebrow above every section — one is voice, two is pattern, three is reflex.",
+      "Don't use numbered section markers (01 · About / 02 · Coverage) as default scaffolding.",
+      "Don't use bounce or elastic easing — use exponential ease-out.",
+      "Don't let text overflow containers — test headings at every breakpoint."
+    ]
+  }
+}

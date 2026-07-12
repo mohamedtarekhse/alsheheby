@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useState } from "react";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 const TrailerRear = lazy(() => import("@/components/TrailerRear"));
 
@@ -134,13 +135,18 @@ function Header() {
       }`}
     >
       <div className="container-x flex items-center justify-between py-5">
-        <a href="#home" className="flex items-center gap-3">
-          <img
-            src="/images/logo.webp"
-            alt="الشهيبي - Al-Shaheebi Trust International Road Transport"
-            className="h-14 w-auto rounded-lg bg-white/95 px-2 py-1.5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.3)] ring-1 ring-white/10 md:h-16"
-          />
-        </a>
+        <div className="flex items-center gap-3">
+          <a href="#home" className="flex items-center gap-3 group">
+            <img
+              src="/images/logo.png"
+              alt="الشهيبي - Al-Shaheebi Trust International Road Transport"
+              className="h-28 w-auto md:h-32 drop-shadow-[0_0_10px_rgba(255,255,255,0.25)] transition-all duration-300 group-hover:drop-shadow-[0_0_18px_rgba(255,255,255,0.5)] group-hover:scale-105"
+            />
+            <span className="hidden sm:inline text-xl md:text-2xl font-black text-white tracking-tight">
+              الشهيبي <span className="text-sky-300">ترست</span>
+            </span>
+          </a>
+        </div>
 
         <nav className="hidden items-center gap-7 md:flex">
           {NAV.map((n) => (
@@ -205,8 +211,12 @@ function Header() {
 
 function LogoMark() {
   return (
-    <div className="h-11 w-auto overflow-hidden rounded-lg bg-white/95 p-1 shadow-sm ring-1 ring-white/10">
-      <img src="/images/logo.webp" alt="الشهيبي" className="h-full w-auto object-contain" />
+    <div className="h-14 w-auto overflow-hidden">
+      <img
+        src="/images/logo.png"
+        alt="الشهيبي"
+        className="h-full w-auto object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]"
+      />
     </div>
   );
 }
@@ -251,7 +261,7 @@ function Hero() {
               <span className="block text-[color:var(--color-primary)]">الشرق الأوسط</span>
             </h1>
             <p className="mt-5 max-w-xl text-base text-white/85 md:text-lg">
-              الشهيبي – خبرة تتجاوز ربع قرن في النقل البري الثقيل والشحنات العملاقة عبر الحدود.
+              الشهيبي <span className="text-sky-300">ترست</span> – خبرة تتجاوز ربع قرن في النقل البري الثقيل والشحنات العملاقة عبر الحدود.
               أسطول حديث، طاقم محترف، وحلول لوجستية متكاملة من القاهرة إلى كل عاصمة عربية.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -596,25 +606,16 @@ function Coverage() {
 }
 
 /* ------------------------------ Partners ----------------------------- */
-const LOGOS = [
-  { name: "Cairo Pharmaceuticals", src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAy87_QS-MYZlw1e27ytvIZpGAXlW8w2grxfNMc-ndCWw62cCOHDOTubFW50O4VPGO10dKlrka0Ioy5cW2_tB3TdJ0YUtgQjUfxNDNJrm2aK6k62cm9W9LKzFt7yInf1mZ3H0f5ClCvzzCvmrN5Siw3s3ETrNIhEDUaOhl7_MDBtMfveD0FRMEDLHd937JUHxpMI9Ddxno2f_xWOYTtqKmnygQS_chdOshhibHLZlpgbk9kr_bR9eqxOw" },
-  { name: "Arab Drug Company", src: "https://lh3.googleusercontent.com/aida-public/AB6AXuCKNofPEQ9g4oG-fX-wZtVBISJW9FK-uHQIAP3LNsA9DA1_7p8iX8W9F5e_V3OSwAL3I68VNVHAQMOtQUqb3YH8l9aygmnNqEgQ0Dh7WzzT9LwOdTqgsJwuMNetR62NF-KwbwnRYZaeOb9tY-Q29BH52HWxPn4ReVKrtrLMdW_odAEZPvwQUL6gZdn_c4TBmZOBE6bvR2PnusSjKHVFtrhHvXAlBf8w7Q20QiF8FR_-3onxCLgl8tkD1w" },
-  { name: "Pharco Pharmaceuticals", src: "https://lh3.googleusercontent.com/aida-public/AB6AXuD6NwczVC0sFc6PRJF_jEYYa0PYGrk-j_6nZheFiWcLVyQpZl2d8XPEx0x2MsZ-yCvPbhA_JnsUDJ3vMLxEk7y23KTeudQZKYpFvLQ7Pd6XbZj0uFAeRRK_1YlseGTrKmksyOaCRUc0gir-EPqJj6SuettrheLBQJo8w4fFEjvgoB_eO-q38yQ9QylmxiAmG-kLqRjDPUrxVmwW-rVrUPTjYVzwQE428NYK8DF9YEvdT8nWSkPe3V2kCg" },
-  { name: "Amoun Pharmaceutical", src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBC07joogkTYkm0aMycWiVdAOmVhbb7ylNqHGG9PfvG0pPw9D3Fh2BuB2b_mybjtSS8UPCju0frM8Qzfu_Fcirj5XPVvgUPm27SXesO8cbWUeBMRW5bvEiMGODBfBSm4pHwQecN7xg9VRcg4w-1zz5RVMeH7YsDufMEKgdVJKhXuk3vedEBajN6oAoQR-V2xrTCfTcPpmuIDA_pTmBQdnS9FPmjdB0RZwxQrmyZ8qZ_p8r5LfWW6qburA" },
-  { name: "Alexandria Pharmaceuticals", src: "https://lh3.googleusercontent.com/aida-public/AB6AXuC22lVeEpAwV6xna9aHQHainTKkIsc5XUMeRE6Ljb8EkictFuJ5uzISclxxDreLvpLcataA9z-FzhpW6JfV6hlf6ABtpr1gniSBzThDAL8DaWVoDeZ8N0kaofTEPR94GIjUAuSRJmuXCzAEJqL1I6WSp_bA-yNy1AsxeEkt8RM51KTQC49BHfkZ1UylvZV54ON1yios3oDmkr1xrwQFZMydPlDWxYhr6ypx_UxZYzjbWv8UuPk1_K6Z_g" },
-  { name: "Sigma Pharmaceutical", src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDl-dpNq_t02HcPJvg-eDb0U3gXX8Ry4tKG7Cts_W6XPIRew_PrN6IAE6AxgQrSjxO6z_GyIXDnYYxRS9vl9awQXI4mCJAAVV2twrcZaeTAISKfogydjYUgzAsA_vNhc_Drl8AB8FSFBSfYCPfSoMUMhRwOD6Ax9Gl1l3jMKw4mAwzqXDM-w-clznHR5erVAr4XftRpGBffqX7lX-3VS3SPd7vHa3GyFdRVXVIiOJ0g7F8_F6uLVpOuWA" },
-  { name: "Eitco Pharma", src: "https://lh3.googleusercontent.com/aida-public/AB6AXuCnV_y0wFAjcXgp_qK0A4fXgld7ot9Yi6-yUCip4IKU_66ha2fE9NX3XUtERykvgbWs9l4s7UlJh-bWPUfYG0bkg2Xar-WLZtZDijejgJMyFSthPeKP9RgXrTgSFPk5KXQMfYkjOyhdpSl38ZE2DDWmGEQRs2-i0A8nZwSqndxsb5lkLxxn8svX1z9CTI7p9WJx8OKX1ya504PHxJXfRn0WcX0fW41AFfjQ2vGytMLUYaqeMAc-V8C5lw" },
-  { name: "EIPICO", src: "https://lh3.googleusercontent.com/aida-public/AB6AXuCoqedYs8Gpzx4DGSjR9EnKN21kQVOidF1VW0a2QXNambGP7kHJHdUDran1YMimexPuGZCjDO4uuTwh39r-rsdLkWHeGLV7pVYC6o1PIJ9p1nSF2XVLmN8PEvlJn6VP8JPg1K9JkddbAC0BnikwleCG1uK289niNNcrwrP7onpPy2NLkstJX5ZlkAj2ZhzfE2UWs5YTnJPkXhGihbRd4YCiU2XpilZ9J8cdDhJwP4GBVZDxyne9cEGIog" },
-  { name: "Egyptian Swiss Food", src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBNG_iDjnrYH6gIe7pq_vVcTm4NBQG8qybc4m8wEDW-OubcWMB9-laTQyXSkI7PmhI2U2wxHGp4_KY7KceXdLuCUlzGa0JNFshS-sRtqyF-Ken_OGmkEudR8DuU_m1ham-hH0_UNA4Qb9apOcNyR2Zr7iAeRorT1NmwXdvd5jLJq47tD-v9gptQBSRtDoaAM_dlFkpVujc2pYHXmyjzlw8Y7AqkaJTj47QHuFY8DPWrV5p8pRjSuI2Xdg" },
-  { name: "Egyptian Flour Industry", src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDcF9VhAKpWRjvlfsN4Tirn9P4WzBQuTY301Bpqx3r5kDE9_e_Fa7iuSZKSqT0-OKCWQ_5GFA8oHcqntBFZsMG7JHVrcFG21TSX5AqU25TnsM2rbGeAuY8aro5S2UFcwQ2FxYN_HkeCK4lpm-TX2k6DA2iNJzHKZuHc9U_4KJcXaGgHfgd_Tj3c7QKJOwse4BReNXxPsSkKoSE0I_PcEjBH6D-DWGqm-7ZkJb_kuM_dtyOwxAzpA5Ym2A" },
-  { name: "Mawasem Food Industries", src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDauHxXwXOGeu9zJskYV7mKtccOzUDoshyACgunCiTknBEdxmEXlSlx-6dBKD0TruTyyBGkYRGH-hYeV9U6y0q7kR9cTaAWP0SO0bpDds-a4KggUUNNsZBx9GCOo5YCuCS_18AHIaVsYDBErQaKknvJ_04LXMh19d3mga_fDR3DDZFmlWuon-N8Je5zEtu4z0fMPtLLosN38KfbgWEuPv2LsB7ngdRtOvGAjjmXD1COkhcLK0v8mhxGVg" },
-];
+const LOCAL_LOGOS = Array.from({ length: 53 }, (_, i) => i + 1).map((n) => ({
+  name: `شريك ${n}`,
+  src: `/images/partners/${n}.png`,
+}));
 
 function Partners() {
   return (
     <section id="partners" className="scroll-mt-24 py-24 md:py-32 bg-[var(--color-secondary)]">
       <div className="container-x">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <span className="eyebrow !text-[var(--color-primary)] mb-4 block">شركاؤنا</span>
           <h2 className="section-title text-[var(--color-primary-deep)] mb-6">
             شركاء النجاح في الصناعات المصرية
@@ -623,16 +624,17 @@ function Partners() {
             نفخر بالتعاون مع كبرى الشركات الدوائية والغذائية الرائدة في جمهورية مصر العربية
           </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
-          {LOGOS.map((logo) => (
+
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-3 md:gap-4">
+          {LOCAL_LOGOS.map((logo) => (
             <div
               key={logo.name}
-              className="rounded-2xl border border-border bg-[var(--color-secondary)] p-3 flex items-center justify-center h-48 overflow-hidden transition-shadow duration-300 hover:shadow-[var(--shadow-elegant)]"
+              className="rounded-xl border border-border bg-white/60 px-3 py-2.5 flex items-center justify-center h-20 overflow-hidden transition-all duration-300 hover:shadow-[var(--shadow-elegant)] hover:bg-white group"
             >
               <img
                 alt={logo.name}
                 src={logo.src}
-                className="h-full w-full object-contain opacity-70 transition-opacity duration-300 hover:opacity-100"
+                className="h-full w-full object-contain opacity-65 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105"
               />
             </div>
           ))}
@@ -932,7 +934,7 @@ function Footer() {
             <div className="flex items-center gap-3">
               <LogoMark />
               <div className="leading-tight">
-                <div className="text-xl font-black">الشهيبي</div>
+                <div className="text-xl font-black">الشهيبي <span className="text-sky-300">ترست</span></div>
                 <div className="text-[10px] tracking-[0.3em] text-white/70">
                   AL-SHEHABY LOGISTICS
                 </div>
@@ -978,7 +980,7 @@ function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/55 md:flex-row">
-          <span>© {new Date().getFullYear()} الشهيبي للنقل البري الثقيل. جميع الحقوق محفوظة.</span>
+          <span>© {new Date().getFullYear()} الشهيبي <span className="text-sky-300">ترست</span> للنقل البري الثقيل. جميع الحقوق محفوظة.</span>
           <span>صُمم بإتقان في القاهرة.</span>
         </div>
       </div>
