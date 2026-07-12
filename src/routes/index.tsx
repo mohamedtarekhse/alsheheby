@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useState } from "react";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import Autoplay from "embla-carousel-autoplay";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 const TrailerRear = lazy(() => import("@/components/TrailerRear"));
 
@@ -596,7 +598,12 @@ function Coverage() {
 }
 
 /* ------------------------------ Partners ----------------------------- */
-const LOGOS = [
+const LOCAL_LOGOS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 20, 21, 22, 23, 24, 25, 26, 28, 29, 30, 31, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58].map((n) => ({
+  name: `شريك ${n}`,
+  src: `/images/partners/${n}.png`,
+}));
+
+const REMOTE_LOGOS: { name: string; src: string }[] = [
   { name: "Cairo Pharmaceuticals", src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAy87_QS-MYZlw1e27ytvIZpGAXlW8w2grxfNMc-ndCWw62cCOHDOTubFW50O4VPGO10dKlrka0Ioy5cW2_tB3TdJ0YUtgQjUfxNDNJrm2aK6k62cm9W9LKzFt7yInf1mZ3H0f5ClCvzzCvmrN5Siw3s3ETrNIhEDUaOhl7_MDBtMfveD0FRMEDLHd937JUHxpMI9Ddxno2f_xWOYTtqKmnygQS_chdOshhibHLZlpgbk9kr_bR9eqxOw" },
   { name: "Arab Drug Company", src: "https://lh3.googleusercontent.com/aida-public/AB6AXuCKNofPEQ9g4oG-fX-wZtVBISJW9FK-uHQIAP3LNsA9DA1_7p8iX8W9F5e_V3OSwAL3I68VNVHAQMOtQUqb3YH8l9aygmnNqEgQ0Dh7WzzT9LwOdTqgsJwuMNetR62NF-KwbwnRYZaeOb9tY-Q29BH52HWxPn4ReVKrtrLMdW_odAEZPvwQUL6gZdn_c4TBmZOBE6bvR2PnusSjKHVFtrhHvXAlBf8w7Q20QiF8FR_-3onxCLgl8tkD1w" },
   { name: "Pharco Pharmaceuticals", src: "https://lh3.googleusercontent.com/aida-public/AB6AXuD6NwczVC0sFc6PRJF_jEYYa0PYGrk-j_6nZheFiWcLVyQpZl2d8XPEx0x2MsZ-yCvPbhA_JnsUDJ3vMLxEk7y23KTeudQZKYpFvLQ7Pd6XbZj0uFAeRRK_1YlseGTrKmksyOaCRUc0gir-EPqJj6SuettrheLBQJo8w4fFEjvgoB_eO-q38yQ9QylmxiAmG-kLqRjDPUrxVmwW-rVrUPTjYVzwQE428NYK8DF9YEvdT8nWSkPe3V2kCg" },
@@ -609,6 +616,18 @@ const LOGOS = [
   { name: "Egyptian Flour Industry", src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDcF9VhAKpWRjvlfsN4Tirn9P4WzBQuTY301Bpqx3r5kDE9_e_Fa7iuSZKSqT0-OKCWQ_5GFA8oHcqntBFZsMG7JHVrcFG21TSX5AqU25TnsM2rbGeAuY8aro5S2UFcwQ2FxYN_HkeCK4lpm-TX2k6DA2iNJzHKZuHc9U_4KJcXaGgHfgd_Tj3c7QKJOwse4BReNXxPsSkKoSE0I_PcEjBH6D-DWGqm-7ZkJb_kuM_dtyOwxAzpA5Ym2A" },
   { name: "Mawasem Food Industries", src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDauHxXwXOGeu9zJskYV7mKtccOzUDoshyACgunCiTknBEdxmEXlSlx-6dBKD0TruTyyBGkYRGH-hYeV9U6y0q7kR9cTaAWP0SO0bpDds-a4KggUUNNsZBx9GCOo5YCuCS_18AHIaVsYDBErQaKknvJ_04LXMh19d3mga_fDR3DDZFmlWuon-N8Je5zEtu4z0fMPtLLosN38KfbgWEuPv2LsB7ngdRtOvGAjjmXD1COkhcLK0v8mhxGVg" },
 ];
+
+const ALL_LOGOS = [...LOCAL_LOGOS, ...REMOTE_LOGOS];
+
+function chunkArray<T>(arr: T[], size: number): T[][] {
+  const result: T[][] = [];
+  for (let i = 0; i < arr.length; i += size) {
+    result.push(arr.slice(i, i + size));
+  }
+  return result;
+}
+
+const PARTNER_PAGES = chunkArray(ALL_LOGOS, 15);
 
 function Partners() {
   return (
@@ -623,20 +642,32 @@ function Partners() {
             نفخر بالتعاون مع كبرى الشركات الدوائية والغذائية الرائدة في جمهورية مصر العربية
           </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
-          {LOGOS.map((logo) => (
-            <div
-              key={logo.name}
-              className="rounded-2xl border border-border bg-[var(--color-secondary)] p-3 flex items-center justify-center h-48 overflow-hidden transition-shadow duration-300 hover:shadow-[var(--shadow-elegant)]"
-            >
-              <img
-                alt={logo.name}
-                src={logo.src}
-                className="h-full w-full object-contain opacity-70 transition-opacity duration-300 hover:opacity-100"
-              />
-            </div>
-          ))}
-        </div>
+        <Carousel
+          opts={{ align: "start", loop: true }}
+          plugins={[Autoplay({ delay: 4000, stopOnInteraction: false })]}
+        >
+          <CarouselContent>
+            {PARTNER_PAGES.map((page, pageIdx) => (
+              <CarouselItem key={pageIdx}>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                  {page.map((logo) => (
+                    <div
+                      key={logo.name}
+                      className="rounded-2xl border border-border bg-[var(--color-secondary)] p-3 flex items-center justify-center h-40 overflow-hidden transition-shadow duration-300 hover:shadow-[var(--shadow-elegant)] group"
+                    >
+                      <img
+                        alt={logo.name}
+                        src={logo.src}
+                        loading="lazy"
+                        className="h-full w-full object-contain opacity-70 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </div>
     </section>
   );
