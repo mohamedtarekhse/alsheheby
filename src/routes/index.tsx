@@ -624,9 +624,9 @@ function Partners() {
       <div className="relative w-full flex flex-col gap-6 py-4" style={{ maskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)" }}>
 
         {/* Row 1: All 53 logos scrolling Left */}
-        <div className="flex overflow-hidden select-none">
+        <div className="overflow-hidden select-none">
           <div
-            className="flex gap-6 shrink-0 animate-marquee min-w-max"
+            className="inline-flex gap-6 animate-marquee"
             style={{ animationDuration: "55s" }}
           >
             {[...row1Logos, ...row1Logos].map((logo, idx) => (
@@ -638,7 +638,6 @@ function Partners() {
                   alt={logo.name}
                   src={logo.src}
                   className="h-full w-full object-contain opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105"
-                  loading="lazy"
                 />
               </div>
             ))}
@@ -646,9 +645,9 @@ function Partners() {
         </div>
 
         {/* Row 2: All 53 logos (reversed) scrolling Right */}
-        <div className="flex overflow-hidden select-none">
+        <div className="overflow-hidden select-none">
           <div
-            className="flex gap-6 shrink-0 animate-marquee-reverse min-w-max"
+            className="inline-flex gap-6 animate-marquee-reverse"
             style={{ animationDuration: "45s" }}
           >
             {[...row2Logos, ...row2Logos].map((logo, idx) => (
@@ -660,7 +659,6 @@ function Partners() {
                   alt={logo.name}
                   src={logo.src}
                   className="h-full w-full object-contain opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105"
-                  loading="lazy"
                 />
               </div>
             ))}
