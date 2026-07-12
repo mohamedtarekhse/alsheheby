@@ -252,7 +252,7 @@ function Hero() {
               <span className="block text-[color:var(--color-primary)]">الشرق الأوسط</span>
             </h1>
             <p className="mt-5 max-w-xl text-base text-white/85 md:text-lg">
-              الشهيبي – خبرة تتجاوز ربع قرن في النقل البري الثقيل والشحنات العملاقة عبر الحدود.
+              الشهيبي <span className="text-sky-300">ترست</span> – خبرة تتجاوز ربع قرن في النقل البري الثقيل والشحنات العملاقة عبر الحدود.
               أسطول حديث، طاقم محترف، وحلول لوجستية متكاملة من القاهرة إلى كل عاصمة عربية.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
