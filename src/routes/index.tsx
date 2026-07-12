@@ -143,9 +143,9 @@ function Header() {
               className="h-14 w-auto rounded-lg bg-white/95 px-2 py-1.5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.3)] ring-1 ring-white/10 md:h-16"
             />
           </a>
-          <a href="#inquiry" className="btn-primary !py-2.5 !px-5 text-sm">
-            اطلب عرض سعر
-          </a>
+          <span className="text-xl md:text-2xl font-black text-white tracking-tight">
+            الشهيبي <span className="text-sky-300">ترست</span>
+          </span>
         </div>
 
         <nav className="hidden items-center gap-7 md:flex">
@@ -160,11 +160,9 @@ function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center">
-          <span className="text-2xl font-black text-white tracking-tight">
-            الشهيبي <span className="text-sky-300">ترست</span>
-          </span>
-        </div>
+        <a href="#inquiry" className="btn-primary hidden md:inline-flex !py-2.5 !px-5 text-sm">
+          اطلب عرض سعر
+        </a>
 
         <button
           aria-label="القائمة"
