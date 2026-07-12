@@ -628,6 +628,32 @@ function chunkArray<T>(arr: T[], size: number): T[][] {
 
 const PARTNER_PAGES = chunkArray(ALL_LOGOS, 15);
 
+function PartnerCard({ logo }: { logo: { name: string; src: string } }) {
+  const [hasError, setHasError] = useState(false);
+
+  return (
+    <div className="rounded-2xl border border-border bg-[var(--color-secondary)] p-3 flex items-center justify-center h-40 overflow-hidden transition-shadow duration-300 hover:shadow-[var(--shadow-elegant)] group">
+      {hasError ? (
+        <div className="flex flex-col items-center justify-center text-center p-2 h-full w-full select-none bg-[var(--color-secondary)]">
+          <div className="w-10 h-10 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center text-[var(--color-primary)] font-bold text-lg mb-2">
+            {logo.name.charAt(0)}
+          </div>
+          <span className="text-xs font-semibold text-[var(--color-primary-deep)] line-clamp-2 px-1 text-center">
+            {logo.name}
+          </span>
+        </div>
+      ) : (
+        <img
+          alt={logo.name}
+          src={logo.src}
+          onError={() => setHasError(true)}
+          className="h-full w-full object-contain opacity-70 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
+        />
+      )}
+    </div>
+  );
+}
+
 function Partners() {
   return (
     <section id="partners" className="scroll-mt-24 py-24 md:py-32 bg-[var(--color-secondary)]">
@@ -647,16 +673,7 @@ function Partners() {
               <CarouselItem key={pageIdx}>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                   {page.map((logo) => (
-                    <div
-                      key={logo.name}
-                      className="rounded-2xl border border-border bg-[var(--color-secondary)] p-3 flex items-center justify-center h-40 overflow-hidden transition-shadow duration-300 hover:shadow-[var(--shadow-elegant)] group"
-                    >
-                      <img
-                        alt={logo.name}
-                        src={logo.src}
-                        className="h-full w-full object-contain opacity-70 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
-                      />
-                    </div>
+                    <PartnerCard key={logo.name} logo={logo} />
                   ))}
                 </div>
               </CarouselItem>
