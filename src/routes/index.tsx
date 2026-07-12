@@ -658,7 +658,6 @@ function Partners() {
                       <img
                         alt={logo.name}
                         src={logo.src}
-                        loading="lazy"
                         className="h-full w-full object-contain opacity-70 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
                       />
                     </div>
