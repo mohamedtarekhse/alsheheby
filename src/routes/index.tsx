@@ -136,16 +136,16 @@ function Header() {
     >
       <div className="container-x flex items-center justify-between py-5">
         <div className="flex items-center gap-3">
-          <a href="#home">
+          <a href="#home" className="flex items-center gap-3 group">
             <img
-              src="/images/logo.webp"
+              src="/images/logo.png"
               alt="الشهيبي - Al-Shaheebi Trust International Road Transport"
-              className="h-14 w-auto rounded-lg bg-white/95 px-2 py-1.5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.3)] ring-1 ring-white/10 md:h-16"
+              className="h-[70px] w-auto md:h-20 drop-shadow-[0_0_10px_rgba(255,255,255,0.25)] transition-all duration-300 group-hover:drop-shadow-[0_0_18px_rgba(255,255,255,0.5)] group-hover:scale-105"
             />
+            <span className="hidden sm:inline text-xl md:text-2xl font-black text-white tracking-tight">
+              الشهيبي <span className="text-sky-300">ترست</span>
+            </span>
           </a>
-          <span className="text-xl md:text-2xl font-black text-white tracking-tight">
-            الشهيبي <span className="text-sky-300">ترست</span>
-          </span>
         </div>
 
         <nav className="hidden items-center gap-7 md:flex">
@@ -211,8 +211,12 @@ function Header() {
 
 function LogoMark() {
   return (
-    <div className="h-11 w-auto overflow-hidden rounded-lg bg-white/95 p-1 shadow-sm ring-1 ring-white/10">
-      <img src="/images/logo.webp" alt="الشهيبي" className="h-full w-auto object-contain" />
+    <div className="h-14 w-auto overflow-hidden">
+      <img
+        src="/images/logo.png"
+        alt="الشهيبي"
+        className="h-full w-auto object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]"
+      />
     </div>
   );
 }
