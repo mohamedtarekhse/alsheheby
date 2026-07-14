@@ -143,7 +143,7 @@ function Header() {
               className="h-28 w-auto md:h-32 drop-shadow-[0_0_10px_rgba(255,255,255,0.25)] transition-all duration-300 group-hover:drop-shadow-[0_0_18px_rgba(255,255,255,0.5)] group-hover:scale-105"
             />
             <span className="hidden sm:inline text-xl md:text-2xl font-black text-white tracking-tight">
-              الشهيبي <span className="text-sky-300">ترست</span>
+              الشهيبي <span className="text-sky-300">تراست</span>
             </span>
           </a>
         </div>
@@ -261,7 +261,7 @@ function Hero() {
               <span className="block text-[color:var(--color-primary)]">الشرق الأوسط</span>
             </h1>
             <p className="mt-5 max-w-xl text-base text-white/85 md:text-lg">
-              الشهيبي <span className="text-sky-300">ترست</span> – خبرة تتجاوز ربع قرن في النقل البري الثقيل والشحنات العملاقة عبر الحدود.
+              الشهيبي <span className="text-sky-300">تراست</span> – خبرة تتجاوز ربع قرن في النقل البري الثقيل والشحنات العملاقة عبر الحدود.
               أسطول حديث، طاقم محترف، وحلول لوجستية متكاملة من القاهرة إلى كل عاصمة عربية.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -934,7 +934,7 @@ function Footer() {
             <div className="flex items-center gap-3">
               <LogoMark />
               <div className="leading-tight">
-                <div className="text-xl font-black">الشهيبي <span className="text-sky-300">ترست</span></div>
+                <div className="text-xl font-black">الشهيبي <span className="text-sky-300">تراست</span></div>
                 <div className="text-[10px] tracking-[0.3em] text-white/70">
                   AL-SHEHABY LOGISTICS
                 </div>
@@ -980,7 +980,7 @@ function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/55 md:flex-row">
-          <span>© {new Date().getFullYear()} الشهيبي <span className="text-sky-300">ترست</span> للنقل البري الثقيل. جميع الحقوق محفوظة.</span>
+          <span>© {new Date().getFullYear()} الشهيبي <span className="text-sky-300">تراست</span> للنقل البري الثقيل. جميع الحقوق محفوظة.</span>
           <span>صُمم بإتقان في القاهرة.</span>
         </div>
       </div>
