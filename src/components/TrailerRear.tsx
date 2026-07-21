@@ -37,7 +37,7 @@ export default function TrailerRear() {
           </div>
           <div>
             <p className="text-sm font-bold text-white">الشهيبي</p>
-            <p className="text-[11px] text-white/50">Al-Shehaby Logistics</p>
+            <p className="text-[11px] text-white/50">AL-SHAHEEBI TRUST</p>
           </div>
         </div>
 

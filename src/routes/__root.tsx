@@ -83,7 +83,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "الشهيبي – شركة مصرية رائدة في النقل البري الثقيل والشحنات العملاقة عبر الشرق الأوسط. أسطول حديث، تخليص جمركي، واستشارات لوجستية.",
       },
-      { name: "author", content: "Al-Shehaby Logistics" },
+      { name: "author", content: "AL-SHAHEEBI TRUST" },
       { property: "og:title", content: "الشهيبي | شركة النقل البري الثقيل في الشرق الأوسط" },
       {
         property: "og:description",

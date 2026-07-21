@@ -81,6 +81,7 @@ const COUNTRIES = [
   "لبنان",
   "سوريا",
   "ليبيا",
+  "السودان",
 ];
 
 const CLIENTS = [
@@ -236,15 +237,7 @@ function Hero() {
         poster="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=80"
       >
         <source
-          src="https://videos.pexels.com/video-files/17899033/17899033-hd_1920_1080_24fps.mp4"
-          type="video/mp4"
-        />
-        <source
-          src="https://videos.pexels.com/video-files/4271760/4271760-hd_1920_1080_30fps.mp4"
-          type="video/mp4"
-        />
-        <source
-          src="https://videos.pexels.com/video-files/4320049/4320049-hd_1920_1080_30fps.mp4"
+          src="/videos/hero-1.mp4"
           type="video/mp4"
         />
         <track kind="captions" srcLang="ar" label="Arabic" />
@@ -378,7 +371,6 @@ function Section3D() {
     >
       <div className="container-x grid items-center gap-10 md:grid-cols-12">
         <div className="md:col-span-5">
-          <span className="eyebrow">ماكيت ثلاثي الأبعاد</span>
           <h2 className="section-title mt-3">أسطول مُهيّأ لأصعب الشحنات</h2>
           <p className="mt-4 text-base text-muted-foreground">
             مقطوراتنا متعددة المحاور قادرة على نقل أحمال تتجاوز 80 طناً عبر تضاريس متنوعة. مرّر
@@ -657,7 +649,7 @@ function About() {
         <div className="relative">
           <img
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_aJekeQ3VrZa7vA0175Z3FOQ_tiWHB4EnfFavKiBqEyPWdgGWCwQSnajH_NnC9_TmLFNbYBmSx36wrkJ6X2qUT4GQAbWFA7DEtLEf2QY1WKvRd7dBHFDuGgAJzkdtN7ssK53s5xBbkqRlTG7JrpXx0SrWJQ1W5dIlaRcJ2s81ZFDaidgzCWzXnlzcJsjZd3JvY0uahsQ7d3pEc8IQBB_RU_OscSgPkM0bp6GkvO98rOVth4moLBubZX7aDV7LTytdUFk"
-            alt="AL-SHEHABY Trucking"
+            alt="AL-SHAHEEBI TRUST"
             loading="lazy"
             className="aspect-[5/6] w-full rounded-3xl object-cover shadow-[var(--shadow-elegant)]"
           />
@@ -941,7 +933,7 @@ function Footer() {
               <div className="leading-tight">
                 <div className="text-xl font-black">Al-SHAHEEBI <span className="text-sky-300">TRUST</span></div>
                 <div className="text-[10px] tracking-[0.3em] text-white/70">
-                  AL-SHEHABY LOGISTICS
+                  AL-SHAHEEBI TRUST
                 </div>
               </div>
             </div>
