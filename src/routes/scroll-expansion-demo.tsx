@@ -1,3 +1,4 @@
+import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from 'react';
 import ScrollExpandMedia from '@/components/ui/scroll-expansion-hero';
 
@@ -71,6 +72,10 @@ const MediaContent = ({ mediaType }: { mediaType: 'video' | 'image' }) => {
   );
 };
 
+export const Route = createFileRoute("/scroll-expansion-demo")({
+  component: ScrollExpansionDemo,
+});
+
 function ScrollExpansionDemo() {
   const [mediaType, setMediaType] = useState<'video' | 'image'>('video');
   const currentMedia = sampleMediaContent[mediaType];
@@ -118,5 +123,3 @@ function ScrollExpansionDemo() {
     </div>
   );
 }
-
-export default ScrollExpansionDemo;

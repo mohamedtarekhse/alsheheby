@@ -9,8 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ScrollExpansionDemoRouteImport } from './routes/scroll-expansion-demo'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ScrollExpansionDemoRoute = ScrollExpansionDemoRouteImport.update({
+  id: '/scroll-expansion-demo',
+  path: '/scroll-expansion-demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +25,39 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/scroll-expansion-demo': typeof ScrollExpansionDemoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/scroll-expansion-demo': typeof ScrollExpansionDemoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/scroll-expansion-demo': typeof ScrollExpansionDemoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/scroll-expansion-demo'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/scroll-expansion-demo'
+  id: '__root__' | '/' | '/scroll-expansion-demo'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ScrollExpansionDemoRoute: typeof ScrollExpansionDemoRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/scroll-expansion-demo': {
+      id: '/scroll-expansion-demo'
+      path: '/scroll-expansion-demo'
+      fullPath: '/scroll-expansion-demo'
+      preLoaderRoute: typeof ScrollExpansionDemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ScrollExpansionDemoRoute: ScrollExpansionDemoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

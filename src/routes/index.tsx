@@ -139,11 +139,11 @@ function Header() {
           <a href="#home" className="flex items-center gap-3 group">
             <img
               src="/images/logo.png"
-              alt="الشهيبي - Al-Shaheebi Trust International Road Transport"
+              alt="Al-SHAHEEBI TRUST - International Road Transport"
               className="h-28 w-auto md:h-32 drop-shadow-[0_0_10px_rgba(255,255,255,0.25)] transition-all duration-300 group-hover:drop-shadow-[0_0_18px_rgba(255,255,255,0.5)] group-hover:scale-105"
             />
             <span className="hidden sm:inline text-xl md:text-2xl font-black text-white tracking-tight">
-              الشهيبي <span className="text-sky-300">تراست</span>
+              Al-SHAHEEBI <span className="text-sky-300">TRUST</span>
             </span>
           </a>
         </div>
@@ -232,6 +232,7 @@ function Hero() {
         muted
         loop
         playsInline
+        preload="metadata"
         poster="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=80"
       >
         <source
@@ -246,6 +247,7 @@ function Hero() {
           src="https://videos.pexels.com/video-files/4320049/4320049-hd_1920_1080_30fps.mp4"
           type="video/mp4"
         />
+        <track kind="captions" srcLang="ar" label="Arabic" />
       </video>
 
       {/* gradient overlays */}
@@ -261,7 +263,7 @@ function Hero() {
               <span className="block text-[color:var(--color-primary)]">الشرق الأوسط</span>
             </h1>
             <p className="mt-5 max-w-xl text-base text-white/85 md:text-lg">
-              الشهيبي <span className="text-sky-300">تراست</span> – خبرة تتجاوز ربع قرن في النقل البري الثقيل والشحنات العملاقة عبر الحدود.
+              Al-SHAHEEBI <span className="text-sky-300">TRUST</span> – خبرة تتجاوز ربع قرن في النقل البري الثقيل والشحنات العملاقة عبر الحدود.
               أسطول حديث، طاقم محترف، وحلول لوجستية متكاملة من القاهرة إلى كل عاصمة عربية.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -494,7 +496,7 @@ function Fleet() {
           <div className="relative mt-6 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
             <div className="flex w-max animate-marquee items-center gap-12 py-3">
               {[...CLIENTS, ...CLIENTS].map((c, i) => (
-                <span key={i} className="text-base font-black text-muted-foreground/70">
+                <span key={i} className="text-base font-black text-muted-foreground">
                   {c}
                 </span>
               ))}
@@ -560,12 +562,14 @@ function Coverage() {
                   muted
                   loop
                   playsInline
+                  preload="metadata"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
               ) : (
                 <img
                   src={slide.src}
                   alt={slide.en}
+                  loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover animate-ken-burns"
                 />
               )}
@@ -616,7 +620,7 @@ function Partners() {
     <section id="partners" className="scroll-mt-24 py-24 md:py-32 bg-[var(--color-secondary)]">
       <div className="container-x">
         <div className="text-center mb-12">
-          <span className="eyebrow !text-[var(--color-primary)] mb-4 block">شركاؤنا</span>
+          <span className="eyebrow !text-[oklch(0.45_0.18_252)] mb-4 block">شركاؤنا</span>
           <h2 className="section-title text-[var(--color-primary-deep)] mb-6">
             شركاء النجاح في الصناعات المصرية
           </h2>
@@ -634,6 +638,7 @@ function Partners() {
               <img
                 alt={logo.name}
                 src={logo.src}
+                loading="lazy"
                 className="h-full w-full object-contain opacity-65 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105"
               />
             </div>
@@ -934,7 +939,7 @@ function Footer() {
             <div className="flex items-center gap-3">
               <LogoMark />
               <div className="leading-tight">
-                <div className="text-xl font-black">الشهيبي <span className="text-sky-300">تراست</span></div>
+                <div className="text-xl font-black">Al-SHAHEEBI <span className="text-sky-300">TRUST</span></div>
                 <div className="text-[10px] tracking-[0.3em] text-white/70">
                   AL-SHEHABY LOGISTICS
                 </div>
@@ -980,7 +985,7 @@ function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/55 md:flex-row">
-          <span>© {new Date().getFullYear()} الشهيبي <span className="text-sky-300">تراست</span> للنقل البري الثقيل. جميع الحقوق محفوظة.</span>
+          <span>© {new Date().getFullYear()} Al-SHAHEEBI <span className="text-sky-300">TRUST</span> للنقل البري الثقيل. جميع الحقوق محفوظة.</span>
           <span>صُمم بإتقان في القاهرة.</span>
         </div>
       </div>
